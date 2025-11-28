@@ -1,9 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.WebHost.UseUrls("http://localhost:8080");
 
+// Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -13,9 +16,16 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Elevator API v1");
+        c.RoutePrefix = string.Empty; // Swagger at root (http://localhost:8080)
+    });
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
