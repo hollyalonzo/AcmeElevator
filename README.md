@@ -19,16 +19,16 @@ It supports passenger pickup/dropoff requests and destination tracking.
    git clone https://github.com/your-org/elevator-api.git
    cd elevator-api
 
-1. **Restore Dependencies**
+2. **Restore Dependencies**
   ```dotnet restore
 
-1. **Build the project**
+3. **Build the project**
    ```dotnet build
 
-1. **- Run the API on port 8080**
+4. **- Run the API on port 8080**
   ```dotnet run --urls "http://localhost:8080"
 
-1. **Test Endpoints (ex. using curl)**
+5. **Test Endpoints (ex. using curl)**
 ```curl
 pickup
 curl -X POST http://localhost:8080/api/elevators/requestPickup \
