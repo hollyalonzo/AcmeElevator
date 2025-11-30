@@ -20,31 +20,34 @@ It supports passenger pickup/dropoff requests and destination tracking.
    cd elevator-api
 
 2. **Restore Dependencies**
-  ```dotnet restore
+   ```
+   dotnet restore
 
 3. **Build the project**
-   ```dotnet build
+   ```
+   dotnet build
 
 4. **- Run the API on port 8080**
-  ```dotnet run --urls "http://localhost:8080"
+   ```
+   dotnet run --urls "http://localhost:8080"
 
 5. **Test Endpoints (ex. using curl)**
-```curl
-pickup
-curl -X POST http://localhost:8080/api/elevators/requestPickup \
-     -H "Content-Type: application/json" \
-     -d '{"floor": 5, "direction": 1 }'
+   ```curl
+   pickup
+   curl -X POST http://localhost:8080/api/elevators/requestPickup \
+        -H "Content-Type: application/json" \
+        -d '{"floor": 5, "direction": 1 }'
 
-dropoff
-curl -X POST http://localhost:8080/api/elevators/requestDropoff \
-     -H "Content-Type: application/json" \
-     -d '{"elevatorId": 1, "targetFloor": 10}'
+   dropoff
+   curl -X POST http://localhost:8080/api/elevators/requestDropoff \
+        -H "Content-Type: application/json" \
+        -d '{"elevatorId": 1, "targetFloor": 10}'
 
-get destinationss
-curl http://localhost:8080/api/elevators/1/destinations
+   get destinationss
+   curl http://localhost:8080/api/elevators/1/destinations
 
-get next floor
-curl http://localhost:8080/api/elevators/1/next
+   get next floor
+   curl http://localhost:8080/api/elevators/1/next
 
 ---
 
