@@ -36,7 +36,7 @@ It supports passenger pickup/dropoff requests and destination tracking.
    pickup
    curl -X POST http://localhost:8080/api/elevators/requestPickup \
         -H "Content-Type: application/json" \
-        -d '{"floor": 5, "direction": 1 }'
+        -d '{"floor": 5, "direction": "Up" }'
 
    dropoff
    curl -X POST http://localhost:8080/api/elevators/requestDropoff \

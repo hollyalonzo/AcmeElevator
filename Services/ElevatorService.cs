@@ -16,7 +16,8 @@ namespace AcmeElevator.Services
         [
             new Elevator(1, 1, ElevatorStatus.Idle, DirectionType.Up, new Queue<int>()),
             new Elevator(2, 5, ElevatorStatus.Moving, DirectionType.Up, new Queue<int>()),
-            new Elevator(3, 10, ElevatorStatus.Moving, DirectionType.Down, new Queue<int>())
+            new Elevator(3, 10, ElevatorStatus.Moving, DirectionType.Down, new Queue<int>()),
+            new Elevator(4, 15, ElevatorStatus.Moving, DirectionType.Up, new Queue<int>())
         ];
 
         public Elevator RequestPickup(int requestedFloor, DirectionType requestDirection)
