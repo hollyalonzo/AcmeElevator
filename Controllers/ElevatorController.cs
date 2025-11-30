@@ -23,7 +23,7 @@ namespace AcmeElevator.Controllers
         [HttpPost("pickup")]
         public ActionResult<CurrentFloorResponse> RequestPickup([FromBody] CurrentFloorRequest request)
         {
-            //todo: add request validation
+            if(request.Floor < 1) { return BadRequest("Floor must be greater than zero."); }
 
             var assignedElevator = _service.RequestPickup(request.Floor, request.Direction);
 
@@ -46,7 +46,8 @@ namespace AcmeElevator.Controllers
         [HttpPost("dropoff")]
         public ActionResult<int> RequestDropoff([FromBody] DropOffRequest request)
         {
-            //todo: add request validation
+            if (request.ElevatorId < 1) { return BadRequest("ElevatorId must be greater than zero."); }
+            if (request.TargetFloor < 1) { return BadRequest("TargetFloor must be greater than zero."); }
 
             var assignedElevator = _service.RequestDropoff(request.ElevatorId, request.TargetFloor);
 
